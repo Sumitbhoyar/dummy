@@ -1,5 +1,6 @@
 "# dummy" 
 
+```
 <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>jaxb2-maven-plugin</artifactId>
@@ -23,3 +24,4 @@
         <clearOutputDir>false</clearOutputDir>
     </configuration>
 </plugin>
+```
