@@ -1,29 +1,37 @@
 "# dummy" 
 
 ```
-<plugin>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>jaxb2-maven-plugin</artifactId>
-    <version>2.3</version>
-    <executions>
-        <execution>
-            <id>xjc</id>
-            <goals>
-                <goal>xjc</goal>
-            </goals>
-        </execution>
-    </executions>
-    <configuration>
-        <xjbSources>
-            <xjbSource>src/main/resources/global.xjb</xjbSource>
-        </xjbSources>
-        <sources>
-            <source>src/main/resources/user.xsd</source>
-        </sources>
-        <outputDirectory>${basedir}/src/main/java</outputDirectory>
-        <clearOutputDir>false</clearOutputDir>
-    </configuration>
-</plugin>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.12.3</version>
+				<executions>
+					<execution>
+						<id>add-source-for-demoapp</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaDirectory>src/main/resources/workflow</schemaDirectory>
+							<schemaIncludes>
+								<include>edu.xsd</include>
+							</schemaIncludes>
+							<bindingDirectory>src/main/resources/workflow</bindingDirectory>
+							<bindingIncludes>
+								<include>edu.xjb</include>
+							</bindingIncludes>
+							<generateDirectory>target/generated-sources/xjc/workflow</generateDirectory>
+							<generatePackage>com.websystique.xml.workflow</generatePackage>
+							<!--  Other configuration options-->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+	</build>
 ```
 
 ```
